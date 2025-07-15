@@ -2,6 +2,13 @@
 export default function Head() {
   return (
     <>
+      <title>9e 오디션 | NINE:TWO:9E</title>
+      <meta property="og:title" content="9e 오디션 | NINE:TWO:9E" />
+      <meta property="og:description" content="9e 공식 오디션 안내 및 지원" />
+      <meta property="og:image" content="https://ninetwo9e.com/og-image.jpg" />
+      <meta property="og:url" content="https://ninetwo9e.com" />
+      <meta name="twitter:card" content="summary_large_image" />
+
       <title>3WAY | 9e Entertainment</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="description" content="차세대 K-POP 그룹 3WAY 공식 홈페이지입니다." />

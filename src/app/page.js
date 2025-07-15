@@ -9,6 +9,8 @@ import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
 import Link from "next/link";
 import { FaInstagram, FaYoutube, FaTwitter, FaCalendarAlt } from "react-icons/fa";
+import Head from "next/head";
+
 
 const groupSliderImages = [
   "/images/group1.jpg",
@@ -18,7 +20,7 @@ const groupSliderImages = [
 
 const members = [
   { name: "Wooseok", image: "wooseok1.jpg" },
-  { name: "Haecheon", image: "haecheon1.jpg" },
+  { name: "Hyecheon", image: "haecheon1.jpg" },
   { name: "Donghyun", image: "donghyun1.jpg" },
   { name: "Jungyoon", image: "jungyoon1.jpg" },
   { name: "Rintaro", image: "rintaro1.jpg" },
@@ -47,9 +49,9 @@ export default function Home() {
   const [sliderRef] = useKeenSlider({ loop: true, slides: { perView: 1 } });
   const [filter, setFilter] = useState("All");
   const events = [
-    { title: "Fan Meeting in Seoul", date: "2025-07-20", category: "Fan Meeting" },
-    { title: "New Album Release", date: "2025-08-15", category: "Release" },
-    { title: "Showcase in Tokyo", date: "2025-09-01", category: "Showcase" },
+    { title: "", date: "2025-00-00", category: "Fan Meeting" },
+    { title: "", date: "2025-00-00", category: "Release" },
+    { title: "", date: "2025-00-00", category: "Showcase" },
   ];
   const filteredEvents = filter === "All" ? events : events.filter((e) => e.category === filter);
 
@@ -66,7 +68,19 @@ export default function Home() {
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
+
   return (
+  <>
+    <Head>
+      <title>9e Entertainment | K-POP Audition</title>
+      <meta name="description" content="글로벌 K-POP 아티스트를 양성하는 9e 엔터테인먼트 오디션에 지원하세요!" />
+      <meta property="og:title" content="9e Entertainment 오디션 모집" />
+      <meta property="og:description" content="미래의 K-POP 스타가 될 당신을 기다립니다!" />
+      <meta property="og:image" content="/images/og-image.jpg" />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
+    </Head>
+    
     <div className="min-h-screen bg-gradient-to-b from-white to-blue-100 relative">
       {/* ✅ Scroll To Top 버튼 */}
       {isClient && showTopBtn && (
@@ -89,21 +103,38 @@ export default function Home() {
         </nav>
       </header>
 
-      <section className="flex flex-col items-center justify-center text-center py-32 bg-blue-200">
-        <motion.h2 initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-5xl font-bold mb-6">
-          Future of K-POP, Vision for the Next Generation
-        </motion.h2>
-        <motion.p initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5 }} className="text-xl max-w-xl">
-          나인투엔터테인먼트는 차세대 K-POP 아티스트를 발굴하고, 
-          그들의 꿈을 실현하기 위해 최선을 다하고 있습니다.
-        </motion.p>
-        <Link href="/audition">
-          <Button className="mt-8 px-8 py-4 text-lg rounded-2xl shadow-lg">
-            Join the Audition
-          </Button>
-        </Link>
-      </section>
 
+<section className="relative w-full h-screen overflow-hidden">
+  {/* 배경 비디오 */}
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+  >
+    <source src="/videos/kpop-bg.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
+  <h1 className="text-5xl font-bold mb-6 drop-shadow-lg">
+    Future of K-POP, Vision for the Next Generation
+  </h1>
+  <p className="text-lg mb-8 drop-shadow-md max-w-2xl">
+    나인투엔터테인먼트는 차세대 K-POP 아티스트를 발굴하고, 
+    그들의 꿈을 실현하기 위해 최선을 다하고 있습니다.
+  </p>
+  <a
+    href="/audition"
+    className="bg-blue-500 text-white py-3 px-6 rounded-full font-semibold shadow-md hover:bg-white hover:text-blue-500 border border-blue-500 transition duration-300"
+  >
+    Join the Audition
+  </a>
+</div>
+</section>
+
+  
       <section id="company" className="py-24 bg-white">
   {/* 타이틀 중앙 정렬 */}
   <h3 className="text-4xl font-bold text-center mb-16">Company</h3>
@@ -114,7 +145,7 @@ export default function Home() {
     {/* Left: Google Map */}
     <div className="w-[400px] h-[300px] md:h-[350px] rounded-xl overflow-hidden shadow-lg mx-auto">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d551.8542899670242!2d127.08919961291556!3d37.54306194663111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca525c2ea3415%3A0xd4379b3eb058e687!2z7ISc7Jq47Yq567OE7IucIOq0keynhOq1rCDqtazsnZjrj5kgMjMxLTEz!5e0!3m2!1sko!2skr!4v1750950838221!5m2!1sko!2skr"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.600073341798!2d127.03281067575179!3d37.49376287205754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca153e873810f%3A0xf0a3e41b41c4b5bc!2z7ISc7Jq47Yq567OE7IucIOqwleuCqOq1rCDsl63sgrzroZwxNOq4uCAxMg!5e0!3m2!1sko!2skr!4v1751525404449!5m2!1sko!2skr"
         width="100%"
         height="100%"
         className="border-0 w-full h-full"
@@ -135,21 +166,37 @@ export default function Home() {
       </div>
 
       {/* 텍스트 소개 (hover 시 표시) */}
-      <div className="relative z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
-        <p className="text-gray-800 mb-6">
-          9e 엔터테인먼트는 글로벌 음악 시장을 선도하는 K-POP 전문 엔터테인먼트사로서,
-          실력과 인성을 겸비한 아티스트를 양성하고 있습니다.
-        </p>
-        <p className="text-gray-800">
-          “차세대 한류를 이끄는, 전 세계가 주목하는 아티스트”라는 비전을 가지고
-          다양한 콘텐츠를 통해 세계와 소통합니다.
-        </p>
-      </div>
+<div className="relative z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100 px-4 text-center md:text-left">
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.2 }}
+  >
+    <p className="text-base md:text-lg text-gray-700 mb-4 leading-relaxed font-light tracking-wide font-[Pretendard]">
+      9e 엔터테인먼트는 글로벌 음악 시장을 선도하는 <span className="text-blue-600 font-semibold">K-POP 전문 엔터테인먼트사</span>로서,<br />
+      실력과 인성을 겸비한 아티스트를 양성하고 있습니다.
+    </p>
+  </motion.div>
+
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.4 }}
+  >
+    <p className="text-base md:text-lg text-gray-700 leading-relaxed font-light tracking-wide font-[Pretendard]">
+      “<span className="text-pink-500 font-semibold">차세대 한류</span>를 이끄는, <span className="text-purple-500 font-semibold">전 세계가 주목하는 아티스트</span>”라는 비전을 가지고<br />
+      다양한 콘텐츠를 통해 세계와 소통합니다.
+    </p>
+  </motion.div>
+</div>
+
     </div>
   </div>
 </section>
 
-
+<div className="w-full h-24 bg-gradient-to-b from-white to-blue-100 flex items-center justify-center">
+  
+</div>
 
       <section className="py-24 bg-white">
         <h3 className="text-4xl font-bold text-center mb-12">Our Artists</h3>
@@ -273,13 +320,13 @@ export default function Home() {
           <div>
             <h4 className="font-semibold text-lg mb-3">Follow Us</h4>
             <div className="flex justify-center md:justify-start space-x-4 text-2xl">
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400">
+              <a href="https://www.instagram.com/www_3way" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400">
                 <FaInstagram />
               </a>
-              <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-red-500">
+              <a href="https://www.youtube.com/@Official_3WAY" target="_blank" rel="noopener noreferrer" className="hover:text-red-500">
                 <FaYoutube />
               </a>
-              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400">
+              <a href="https://x.com/www_3way" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400">
                 <FaTwitter />
               </a>
             </div>
@@ -300,5 +347,6 @@ export default function Home() {
         </Button>
       </Link>
     </div>
-  );
+  </> 
+ );
 }

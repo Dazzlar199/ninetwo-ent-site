@@ -128,3 +128,7 @@
     @apply bg-background text-foreground;
   }
 }
+/* 글로벌 스타일 정의 */
+.input-style {
+  @apply w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
